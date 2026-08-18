@@ -98,7 +98,7 @@ if (age >= 18) {
 }   else if (age >= 6 && edad <=11) {
         alert("Felicidades estás en la primaria")
 }   else {
-    alert("Aún no puedes pasar, vuelve cuando cumplas los 18");
+        alert("Aún no puedes pasar, vuelve cuando cumplas los 18");
 }
 
 
