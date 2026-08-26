@@ -42,9 +42,9 @@
     } else {
         console.log(`El número ${counter} es impar`);
     }
-    //operador de incremento suma 1 a el valor de la variable
+    //operador de incremento suma 1 a el valor de la variable, exclusivo para uno
+    //counter = counter +20 para más n cantidad 
     counter ++; 
  }
  
- 
-
+ //While y Do while: No sabes cuantas veces se va a ejecutar 

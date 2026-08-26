@@ -72,3 +72,5 @@ let countries = prompt(`Selecciona un país:
         default:
             alert("El país seleccionado no aplica")
     }
+
+// switch: valores específicos / opciones / etiquetas 
