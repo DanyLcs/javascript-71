@@ -1,125 +1,63 @@
 /**
- *! Estructuras de datos
- *! Qué son y por qué son importantes?  
- *todo: Son estructuras que nos ayudan a agrupar y/o ordenar datos 
- *todo: Para minipular estos datos de manera más eficiente 
- *todo: Datos no representan nada por si solo 
- *todo: Datos juntos y dándoles contexto se vuelve información  
+ *! For (loop)
+ ** Es una estructura de control rpetitiva 
+ ** El bloque de código dentro de ella se va a repetir n veces 
+ *? El bucle for cuenta con 3 partes dentro de los paréntesis: 
+ *? 1. Una variable que va a actuar como contador, común es que se llame i  
+ *? 2. Es la condición de ejecución, esto quiere decir la condición que mientras sea verdadera, el bucle se va a ejecutar
+ *? 3. El incremento del contador
  * 
- **Array
- *? Es una estructura de datos ordenada  
- **IMPORTANTE 
- *? Los datos se identifican por un indice, el indice empieza a contar desde 0 
- *? El tamaño real se cuenta desde 1  
- **IMPORTANTE, pero particular para JS
- *? Podemos guardar cualquier tipo de dato dentro del array, incluso combinaciones  
- *? Tienen tamaño dinámico 
+ **Nota:  
+ ** Se suele usar mucho para recorrer arrays 
+ ** Método para saber el tamaño de un array
+ *todo: nombreArray.length 
  * 
- * 
+ *!for (inicio; condición; incremento) {
+ *! // código que se repite 
+ *! }
  * 
  * 
  */
 
-// Definición de un array
-const arrayVacío = [];
+const numeros = [
+  12, 45, 7, 89, 23, 56, 34, 78, 91, 10,
+  67, 32, 4, 76, 54, 21, 98, 43, 65, 11,
+  87, 29, 50, 73, 16, 94, 38, 61, 8, 82,
+  27, 69, 14, 95, 41, 58, 3, 77, 36, 84,
+  19, 63, 47, 90, 25, 71, 6, 53, 80, 31,
+  99, 42, 17, 68, 35, 86, 22, 74, 9, 57,
+  93, 40, 15, 62, 28, 81, 5, 70, 48, 96,
+  24, 59, 33, 88, 13, 66, 44, 79, 2, 55,
+  97, 30, 18, 72, 46, 85, 20, 64, 39, 92,
+  1, 52, 26, 75, 49, 83, 37, 60, 51, 100
+];
 
-const arrayContenido = ["Daniela, 26, true"];
-const months = ["Jan", "March", "April", "June"];
+console.log(`El tamaño del array es ${numeros.length}`);
+for (let i = 0; i < numeros.length; i++) {
+    console.log(`El número en la posición ${i} es ${numeros[i]}`);
+}
 
-/** 
- *todo: Obtención de un elemento guardado en un array
- *todo: notación corchete []
- */
-
-console.log(arrayContenido[1]);
-console.log(arrayContenido[0]);
-console.log(arrayContenido[3]);
+let total = 0;
+for (let c = 0; c < numeros.length; c++) {
+    // sintaxis tradicional
+    total = total + numeros[c];
+    console.log(`El valor actual del acumulado es ${total}`);
+    /** sintaxis abreviada
+     * total += numeros[c];
+     */
+}
+console.log(`La suma de los 100 elementos del array es ${total}`);
 
 /**
- *! Ingresar datos al array  
- *? Métodos
- *? 1. Unshift para ingresar elementos al comienzo del array 
- *? 2. Push para ingresar elementos al final del array 
+ ** Ejercicio: 
+ ** 1. Usar un for para recorrer el array de números 
+ ** 2. En cada iteración mostrar en consola si el número es par o impar
  */
 
-console.log("Array antes");
-console.log(arrayContenido);
-arrayContenido.unshift("Aldo");
-console.log("Array después");
-console.log(arrayContenido);
-
-console.log("Array antes");
-console.log(arrayContenido);
-arrayContenido.push("Kenay", false);
-console.log("Array después");
-console.log(arrayContenido);
-
-/**
- *! Eliminar datos 
- ** 1. Shift elimina y devuelve el elemento en la posición 0 
- ** 2. Pop elimina y devuelve el útlimo elemento del array 
- * 
- *? Nota:  
- *? Lo que va dentro de los paréntesis de un método o función se conoce como argumento 
- */
-
-console.log("Array antes");
-console.log(arrayContenido);
-// arrayContenido.shift();
-console.log(`Elemento eliminado ${arrayContenido.shift()}`);
-console.log("Array después");
-console.log(arrayContenido);
-
-console.log("Array antes");
-console.log(arrayContenido);
-// arrayContenido.pop();
-console.log(`Elemento eliminado ${arrayContenido.pop()}`);
-console.log("Array después");
-console.log(arrayContenido);
-
-/**
- *! Reasignar el valor de un índice 
- */
-
-let valorAnterior = arrayContenido[0]; // Guardar un valor antes de reasignarlo
-arrayContenido[0] = "Kenia";
-arrayContenido[2] = "Nube";
-console.log("El valor anterior es: " + valorAnterior); // Guardar un valor antes de reasignarlo
-console.log(`Resultado de la reasignación de un elemento ${arrayContenido}`);
-console.log(arrayContenido);
-
-/**
- *! Splice 
- *? 1. Elimina o agrega elementos  
- *? Orden eliminar: Número de inicio y lo que se va a eliminar 
- *? Orden: Número de inicio, lo que se va a eliminar y que se va a agregar 
- */
-
-console.log("====Splice====");
-arrayContenido.splice(1, 1);
-console.log(arrayContenido);
-arrayContenido.splice(1, 2);
-console.log(arrayContenido);
-
-// Agregar elementos
-months.splice(3, 0, "Nairobi");
-console.log(months);
-
-/**
- *todo: Splice tiene 3 partes que van dentro de los paréntesis (1, 2, 3)
- *todo: 1. Indica la posición donde va a iniciar a eliminar o a agregar 
- *todo: 2. Cuántos elementos va a eliminar 
- *todo: 3. Qué elementos va a agregar  
- */
-
-console.log("Array meses antes");
-console.log(months);
-console.log("Array meses después");
-months.splice(1, 0, "Feb");
-console.log(months);
-
-console.log("Array meses antes");
-console.log(months);
-console.log("Array meses después");
-months.splice(4, 1);
-console.log(months);
+for (let i = 0; i < numeros.length; i++) {
+    if (numeros[i] % 2 === 0) {
+        console.log(`El número ${numeros[i]} es par`);
+    } else {
+        console.log(`El número ${numeros[i]} es impar`);
+    }
+}
