@@ -12,7 +12,7 @@
 *
 *Nota: 
 *todo: Expresiones: Es todo aquello que genera un valor
-** ejemplos: una suma, usa una variablem usa una función
+** ejemplos: una suma, usa una variable usa una función
 ** texto, número
 *todo: Declaraciones (statement): No genera valor y por lo general son estruturas de control o bucles
 ** ejemplo: el if, el switch, el for, el while
