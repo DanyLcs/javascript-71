@@ -1,51 +1,78 @@
-const numeros = [ 42, 7, 91, 18, 63, 25, 84, 3, 56, 71, 12, 97, 34, 68, 9, 45, 77, 21, 60, 5, 88, 31, 14, 73, 49, 2, 95, 38, 66, 27, 81, 10, 54, 92, 16, 69, 33, 76, 24, 58, 1, 87, 40, 65, 19, 99, 52, 29, 74, 6, 83, 35, 11, 57, 90, 23, 47, 79, 4, 61, 98, 26, 70, 13, 85, 32, 55, 8, 93, 41, 64, 17, 72, 28, 50, 96, 20, 67, 36, 82, 15, 59, 94, 30, 75, 22, 48, 86, 39, 62, 100, 44, 78, 53, 89, 37, 51, 80, 43, 46, 132, 107, 191, 118, 163, 125, 184, 103, 156, 171, 112, 197, 134, 168, 109, 145, 177, 121, 160, 105, 188, 131, 114, 173, 149, 102, 195, 138, 166, 127, 181, 110, 154, 192, 116, 169, 133, 176, 124, 158, 101, 187, 140, 165, 119, 199, 152, 129, 174, 106, 183, 135, 111, 157, 190, 123, 147, 179, 104, 161, 198, 126, 170, 113, 185, 130, 155, 108, 193, 141, 164, 117, 172, 128, 150, 196, 120, 167, 136, 182, 115, 159, 194, 122, 175, 142, 148, 186, 139, 162, 200, 144, 178, 153, 189, 137, 151, 180, 143, 146 ];
+/**
+ ** Objetos en JS (JSON) 
+ ** Son una estructura de datos, similar a diccionarios o mapas 
+ *? Se organiza en pares 
+ *? Llave: Valor asociado 
+ *? Es una estructura de datos desordenada 
+ *? Aquí los datos se obtienen mediante su llave 
+ *
+ *! No son los mismos objetos que los de Programación orientada a objetos 
+ *! Las llaves no se pueden repetir 
+ * 
+ ** Curiosidades 
+ ** En esta notación se volvio el estándar para intercambio de información entre cliente y servidor en la WEB
+ *  
+ *todo: JSON (JavaScript Object Notation)
+ *   
+ *
+ */
 
-for (const numero of numeros) {
-    console.log(`El número es ${numero}`);
+ //todo: Como declarar un objeto
+
+const participante = {
+    name: "Daniela",
+    lastname: "Chagal",
+    age: 27, 
+    isAlive: true,
+    sayHi: function () {
+        console.log("Daniela dice Hola");
+    },
+    ch:71,
+} 
+
+//todo: Cómo acceder a los valores
+//? 1. Notación punto (más usado)
+//? 2. Notación corchete, el nombre va entre comillas como si fuera String
+
+console.log(`El nombre de la participante es ${participante.name}, obtenido con notación punto`);
+
+console.log(`La edad de la participante es ${participante["age"]}, obtenido con notación corchete`);
+
+participante.sayHi();
+
+//todo: Cómo agregar un nuevo par llave valor
+
+console.log(participante);
+participante.favoriteAnimals = ["Perro", "Capibara", "Tiburón"];
+console.log(participante);
+
+participante.address = {
+    zipcode: "548023",
+    country: "Mexico",
+};
+
+//todo: Cómo accedemos a la info de objetos o arrays anidados (objetos o arrays dentro de otro objeto y otro array)
+
+console.log(
+    `El primer animal favorito de ${participante.name} es ${participante.favoriteAnimals[0]}`,
+);
+console.log(participante.favoriteAnimals);
+
+console.log(
+    `El código postal de ${participante.name} es ${participante.address["zipcode"]}`,
+);
+
+//todo: Cómo modificar el valor de una llave
+
+participante.age = 25;
+console.log(participante.age);
+
+//todo: Cómo eliminar una llave 
+delete participante.ch;
+console.log(participante);
+
+//todo: Cómo iterar (recorrer) sobre el objeto
+for (const llave in participante) {
+    console.log(`El valor de la llave ${llave} es ${participante[llave]}`);
+    console.log(llave);
 }
-
-//foreach
-numeros.forEach((numero, index, array) => {
-    console.log(
-        `El número ${numero} con índice ${index} más dos es ${numero + 2}`,
-    );
-
-    console.log("El array original es " + array);
-    return numero + 2;
-});
-
-//map ejecuta una función sobre cada elemento de un array y devuelve un nuevo array con el resultado
-function multiplyBy3(numero) {
-    return numero * 3;
-}
-
-const numeroXTres = numeros.map(multiplyBy3);
-console.log(numeroXTres);
-
-const numeroXCuatro = numeros.map((numero) => numero * 4);
-console.log(numeroXCuatro);
-
-//Filter sirve para filtrar elementos de un array
-//Recibe una función de callback donde lo que retornemos debe ser una expresión boolean, y los elementos del array que cumplan esta condición serán guardados en un nuevo array 
-
-const pares = numeros.filter(function (numero) {
-    return numero % 2 == 0;
-});
-console.log(pares);
-
-const triples = numeros.filter(function (numero) {
-    return numero % 3 == 0;
-})
-console.log(triples);
-
-//Ejercicio
-
-const multiplosDe3 = numeros.filter((numero) => numero % 3 == 0);
-console.log(pares);
-
-function addIVA(numero) {
-    return numero * 1.16;
-}
-
-const numerosIVA = numeros.map(addIVA);
-console.log(numerosIVA);
