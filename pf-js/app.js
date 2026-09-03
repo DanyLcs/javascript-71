@@ -75,4 +75,4 @@ console.log(participante);
 for (const llave in participante) {
     console.log(`El valor de la llave ${llave} es ${participante[llave]}`);
     console.log(llave);
-}
+}    
